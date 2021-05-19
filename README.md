@@ -1,6 +1,6 @@
 1. Description of application
 
-App "Production" is made to show parameters  of available
+App "production-plan" is made to show parameters  of available
 orders by selecting number of order.
 
 2. Assembling and running
