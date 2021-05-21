@@ -6,6 +6,7 @@
         <finalName>production-plan</finalName>
         <tomcat7-maven-plugin-ver>2.2</tomcat7-maven-plugin-ver>
         <javax-servlet-ver>3.0.1</javax-servlet-ver>
+        <junit-ver>4.11</junit-ver>
     </properties>
 
     <groupId>org.example</groupId>
@@ -19,6 +20,12 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax-servlet-ver}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-ver}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

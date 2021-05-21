@@ -1,11 +1,18 @@
 Description of application
 
-1. App "Production-plan" is made to show parameters of available orders by selecting number of order.
+1. Application "Production-plan" is intended for control manufacturing process within production company.
 
-2. Assembling and running
+1.1 Main functions:
+   - create new order;
+   - edit selected order;  
+   - search order by parameters.
 
-2.1 Generate WAR file for running in servlet container, type in terminal: mvn clean install
+2. Used technologies: Maven, java Server Pages, JDBC, Java servlets.
 
-2.2 Put generated WAR file into servlet container, webapps folder.
+3. Assembling and running
 
-2.3 Run WAR file in servlet container in browser.
+3.1 Generate WAR file for running in servlet container, type in terminal: mvn clean install
+
+3.2 Put generated WAR file into servlet container, webapps folder.
+
+3.3 Run WAR file in servlet container in browser.
