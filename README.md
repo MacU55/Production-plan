@@ -1,18 +1,27 @@
-Description of application
+# Production Plan
 
-1. Application "Production-plan" is intended for control manufacturing process within production company.
+Application "Production-plan" is intended for control manufacturing process within production company.
 
-1.1 Main functions:
+##Main functions:
    - create new order;
    - edit selected order;  
    - search order by parameters.
 
-2. Used technologies: Maven, java Server Pages, JDBC, Java servlets.
+##Requirements
+### Database
+Create database and schemas using repository/src/resources/dbchangelog.sql
 
-3. Assembling and running
+##Compiling, running and debugging
+###For Windows OS
+Compile, test and package project
+`mvn clean install`
+Copy generated *.war from webapp/target to $CATALINA_HOME\webapps and run 
+`catalina.bat  start`
+To debug solution, run 
+`catalina.bat jpda start`
+Configure your IDE with remote debug configuration on default 8000 port.  
 
-3.1 Generate WAR file for running in servlet container, type in terminal: mvn clean install
-
-3.2 Put generated WAR file into servlet container, webapps folder.
-
-3.3 Run WAR file in servlet container in browser.
+##Usage
+Login to system (taken from repository/src/resources/dbchangelog.sql)
+email: superAdmin@test.mail
+password: admin123
