@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Orders</title>
+</head>
+<body>
+
+<h1>Add New Order</h1>
+<form action="/production-plan/order" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name"/></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text" name="quantity"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Save"/></td>
+        </tr>
+    </table>
+</form>
+
+<br/>
+<a href="/production-plan/orders">Orders</a>
+</body>
+</html>  

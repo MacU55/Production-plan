@@ -1,0 +1,21 @@
+body {
+  background-color: #FAF0E6;
+}
+h1 {
+  color: blue;
+}
+p {
+  color: red;
+}
+table, th, td {
+  border: 2px solid black;
+  /*border-collapse: collapse;*/
+  padding: 5px;
+  border-spacing: 1px;
+  text-align: left;
+  /*overflow: hidden;*/
+}
+p.error {
+  color: red;
+}
+th,
