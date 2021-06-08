@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
     <title>Orders</title>
 </head>
 <body>
 
-<h1>Add New Order</h1>
+<h1>Нове замовлення</h1>
 <form action="/production-plan/order" method="post">
     <table>
         <tr>
@@ -18,12 +19,33 @@
             <td><input type="text" name="quantity"/></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Save"/></td>
+            <td>dateShipmentContract:</td>
+            <td><input type="text" name="date_shipment_contract"/></td>
+        </tr>
+        <tr>
+            <td>dateDesign:</td>
+            <td><input type="text" name="date_design"/></td>
+        </tr>
+        <tr>
+            <td>Термін технології:</td>
+            <td><input type="text" name="date_technology"/></td>
+        </tr>
+        <tr>
+            <td>Термін підготовки:</td>
+            <td><input type="text" name="date_sustain"/></td>
+        </tr>
+        <tr>
+            <td>Термін відвантаження:</td>
+            <td><input type="text" name="date_shipment"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Зберегти"/></td>
         </tr>
     </table>
 </form>
 
 <br/>
-<a href="/production-plan/orders">Orders</a>
+<a href="/production-plan/orders" class="btn">Замовлення</a>
 </body>
 </html>  

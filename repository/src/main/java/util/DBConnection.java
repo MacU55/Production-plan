@@ -12,7 +12,8 @@ public class DBConnection {
         String database = "production";
         String username = "root";
         String password = "root";
-        String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?serverTimezone=UTC&autoReconnect=true&useSSL=false";
+        String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database +
+                "?serverTimezone=UTC&autoReconnect=true&useSSL=false";
 
         String driver = "com.mysql.cj.jdbc.Driver";
         Class.forName(driver);

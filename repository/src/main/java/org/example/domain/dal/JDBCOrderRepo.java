@@ -5,10 +5,13 @@ import org.example.domain.entity.Order;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class JDBCOrderRepo implements IOrderRepo {
-    private static final String INSERT_STATEMENT = "INSERT INTO orders(name, quantity, date_shipment_contract, date_design, date_technology, date_sustain, date_shipment) values (?,?,now(),now(),now(),now(),now())";
-    private static final String UPDATE_STATEMENT = "UPDATE orders SET name=?,quantity=? WHERE id=?";
+    private static final String INSERT_STATEMENT = "INSERT INTO orders(name, quantity, date_shipment_contract, " +
+            "date_design, date_technology, date_sustain, date_shipment) values (?,?,now(),now(),now(),now(),now())";
+    private static final String UPDATE_STATEMENT = "UPDATE orders SET name=?,quantity=?,date_shipment_contract=?,date_design=?," +
+            "date_technology=?,date_sustain=?,date_shipment=? WHERE id=?";
     private static final String FIND_BY_ID_STATEMENT = "SELECT * FROM orders WHERE id=?";
     private static final String FIND_ALL_STATEMENT = "SELECT * FROM orders";
 
@@ -25,28 +28,47 @@ public class JDBCOrderRepo implements IOrderRepo {
     }
 
     @Override
-    public Order save(Connection connection, Order user) throws SQLException {
+    public Order save(Connection connection, Order order) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(INSERT_STATEMENT, Statement.RETURN_GENERATED_KEYS);
-        statement.setString(1, user.getName());
-        statement.setInt(2, user.getQuantity());
+        statement.setString(1, order.getName());
+        statement.setInt(2, order.getQuantity());
         int result = statement.executeUpdate();
         if (result == 0) {
             throw new SQLException("Save User. Failed");
         }
-        return this.setIdAndReturn(statement, user);
+        return this.setIdAndReturn(statement, order);
     }
 
     @Override
-    public Order update(Connection connection, Order user) throws SQLException {
+    public Order update(Connection connection, Order order) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(UPDATE_STATEMENT);
-        statement.setString(1, user.getName());
-        statement.setInt(2, user.getQuantity());
-        statement.setInt(3, user.getId());
+        statement.setString(1, order.getName());
+        statement.setInt(2, order.getQuantity());
+
+        Date utilDateShipmentContract = order.getDateShipmentContract();
+        Date utilDateDesign = order.getDateDesign();
+        Date utilDateTechnology = order.getDateTechnology();
+        Date utilDateSustain = order.getDateSustain();
+        Date utilDateShipment = order.getDateShipment();
+
+        java.sql.Date sqlDateShipmentContract = new java.sql.Date(utilDateShipmentContract.getTime());
+        java.sql.Date sqlDateDesign = new java.sql.Date(utilDateDesign.getTime());
+        java.sql.Date sqlDateTechnology = new java.sql.Date(utilDateTechnology.getTime());
+        java.sql.Date sqlDateSustain = new java.sql.Date(utilDateSustain.getTime());
+        java.sql.Date sqlDateShipment = new java.sql.Date(utilDateShipment.getTime());
+
+        statement.setDate(3,  sqlDateShipmentContract);
+        statement.setDate(4,  sqlDateDesign);
+        statement.setDate(5,  sqlDateTechnology);
+        statement.setDate(6,  sqlDateSustain);
+        statement.setDate(7,  sqlDateShipment);
+
+        statement.setInt(8, order.getId());
         int result = statement.executeUpdate();
         if (result == 0) {
             throw new SQLException("Update User. Failed");
         }
-        return user;
+        return order;
     }
 
     @Override
@@ -76,15 +98,15 @@ public class JDBCOrderRepo implements IOrderRepo {
         return orders;
     }
 
-    public Order setIdAndReturn(PreparedStatement statement, Order user) throws SQLException {
+    public Order setIdAndReturn(PreparedStatement statement, Order order) throws SQLException {
         try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
             if (generatedKeys.next()) {
-                user.setId(generatedKeys.getInt(1));
+                order.setId(generatedKeys.getInt(1));
             } else {
                 throw new SQLException("Creating order failed, no ID obtained.");
             }
         }
-        return user;
+        return order;
     }
 
     private static Order loadFromResult(ResultSet resultSet) throws SQLException {
