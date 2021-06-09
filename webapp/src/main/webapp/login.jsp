@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <h1>Login using your email and password</h1>
+        <h1>Введіть електронну пошту і пароль</h1>
         <form action="/production-plan/login" method="post">
             <label for="email">Email:</label>
             <input name="email" size="30" />
@@ -18,7 +18,7 @@
             <input type="password" name="password" size="30" />
             <br>${message}
             <br><br>           
-            <button type="submit">Login</button>
+            <button type="submit">Увійти</button>
         </form>
     </div>
 </body>

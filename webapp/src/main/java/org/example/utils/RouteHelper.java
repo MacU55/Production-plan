@@ -18,6 +18,7 @@ public class RouteHelper {
     
     //orders
     public static final String ORDERS_URL_PATTERN = "/orders";
+    public static final String DESIGNSDEPT_URL_PATTERN = "/designs";
     public static final String ORDER_URL_PATTERN = "/order";
     public static final String CREATE_NEW_ORDER_PAGE = "createOrder.html";
 

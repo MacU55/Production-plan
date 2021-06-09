@@ -100,6 +100,7 @@ public class OrderServlet extends HttpServlet {
         order.setName(name);
         order.setQuantity(quantity);
         return order;
+
     }
 
     private String getOrderView(HttpServletRequest request, OrderDTO orderDTO) {
@@ -115,15 +116,15 @@ public class OrderServlet extends HttpServlet {
                 .append(orderDTO.getName()).append("'/></td></tr>");
         stringBuilder.append("<tr><td>Кількість</td><td><input type='text' name='quantity' value='")
                 .append(orderDTO.getQuantity()).append("'/></td></tr>");
-        stringBuilder.append("<tr><td>Термін поставки згідно контракту</td><td><input type='text' name='date_shipment_contract' value='")
+        stringBuilder.append("<tr><td>Термін відвантаження згідно контракту</td><td><input type='text' name='date_shipment_contract' value='")
                 .append(orderDTO.getDateShipmentContract()).append("'/></td></tr>");
         stringBuilder.append("<tr><td>Термін виконання креслень</td><td><input type='text' name='date_design' value='")
                 .append(orderDTO.getDateDesign()).append("'/></td></tr>");
-        stringBuilder.append("<tr><td>Термін виконання технолгії</td><td><input type='text' name='date_technology' value='")
+        stringBuilder.append("<tr><td>Термін виконання технології</td><td><input type='text' name='date_technology' value='")
                 .append(orderDTO.getDateTechnology()).append("'/></td></tr>");
         stringBuilder.append("<tr><td>Термін виконання підготовки</td><td><input type='text' name='date_sustain' value='")
                 .append(orderDTO.getDateSustain()).append("'/></td></tr>");
-        stringBuilder.append("<tr><td>Термін поставки </td><td><input type='text' name='date_shipment' value='")
+        stringBuilder.append("<tr><td>Термін відвантаження</td><td><input type='text' name='date_shipment' value='")
                 .append(orderDTO.getDateShipment()).append("'/></td></tr>");
 
         stringBuilder.append("</td></tr>");
@@ -132,5 +133,6 @@ public class OrderServlet extends HttpServlet {
         stringBuilder.append("</form>");
         stringBuilder.append("<a href='").append(RouteHelper.getURL(request, RouteHelper.ORDERS_URL_PATTERN)).append("Замовлення</a>");
         return stringBuilder.toString();
+
     }
 }

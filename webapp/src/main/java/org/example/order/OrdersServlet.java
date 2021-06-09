@@ -44,13 +44,13 @@ public class OrdersServlet extends HttpServlet {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<a href='").append(RouteHelper.getPageURL(request, RouteHelper.CREATE_NEW_ORDER_PAGE)).append("" +
                 "' class=\"btn\">Зробити нове замовлення</a>");
-        stringBuilder.append("<h1>Orders List</h1>");
+        stringBuilder.append("<h1>Перелік замовлень</h1>");
         stringBuilder.append("<table border='1' width='1000px'");
-        stringBuilder.append("<tr><th style='width:30px;'>Id</th><th style='width:130px;'>Name</th>" +
-                "<th style='width:60px;'>Quantity</th><th style='width:130px;'>Date shipment contract</th>" +
-                "<th style='width:130px;'>Date Design</th><th style='width:130px;'>Date Technology</th>" +
-                "<th style='width:130px;'>Date Sustain</th>" +
-                "<th style='width:130px;'>Date Shipment</th><th>Edit</th></tr>");
+        stringBuilder.append("<tr><th style='width:30px;'>Номер замовлення</th><th style='width:130px;'>Назва замовлення</th>" +
+                "<th style='width:60px;'>Кількість</th><th style='width:130px;'>Термін відвантаження згідно контракту</th>" +
+                "<th style='width:130px;'>Термін виконання креслень</th><th style='width:130px;'>Термін виконання технології</th>" +
+                "<th style='width:130px;'>Термін виконання підготовки</th>" +
+                "<th style='width:130px;'>Термін відвантаження</th><th>Редагування</th></tr>");
         for (OrderDTO order : orders) {
             stringBuilder.append("<tr>")
                     .append("<td>").append(order.getId()).append("</td>")

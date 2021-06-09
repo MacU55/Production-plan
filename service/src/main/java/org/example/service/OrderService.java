@@ -48,7 +48,7 @@ public class OrderService implements IOrderService {
     @Override
     public OrderDTO update(OrderDTO order) throws ServiceException {
         if (order == null) {
-            throw new ServiceException("User can't be null");
+            throw new ServiceException("order can't be null");
         }
         try (Connection connection = DBConnection.connect()) {
             Order orderToUpdate = converter.convert(order);
