@@ -10,10 +10,10 @@
 
 <h1>Виробничий план</h1>
 <p>Вітаю, ${name}</p>
-<a href="/production-plan/logout" class ="btn">Вийти</a> |
+<a href="/production-plan/logout" class ="btn">Вийти</a>
 <hr>
 <a href="/production-plan/orders" class ="btn">Замовлення</a> |
-<a href="/production-plan/designs" class ="btn">Конструкторській відділ</a>
+<a href="/production-plan/designs" class ="btn">Конструкторській відділ</a> |
 <a href="/production-plan/users" class ="btn">Користувачі</a> |
 
 

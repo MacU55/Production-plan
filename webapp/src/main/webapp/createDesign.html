@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>designDept</title>
+</head>
+<body>
+
+<h1>Нове кресленя</h1>
+<form action="/production-plan/design" method="post">
+    <table>
+        <tr>
+            <td>Номер замовлення на виробництво</td>
+            <td><input type="text" name="order_id"/></td>
+        </tr>
+        <tr>
+            <td>Дата виконаного замовлення</td>
+            <td><input type="text" name="date_design_completed"/></td>
+        </tr>
+        <tr>
+            <td>Позначення креслення</td>
+            <td><input type="text" name="drawing_name"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Зберегти"/></td>
+        </tr>
+    </table>
+</form>
+
+<br/>
+<a href="/production-plan/designs" class="btn">Конструкторський відділ</a>
+</body>
+</html>
